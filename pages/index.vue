@@ -1,19 +1,16 @@
 
 <script>
-import linkRouter from "../components/link.vue";
 export default {
-  components: {
-    linkRouter,
-  },
+  components: {},
   data() {
     return {
       movieName: ["風飛鯊", "風飛鯊2", "風飛鯊3", "風飛鯊4"],
       movieEng: ["sharknado", "sharknado2", "sharknado3", "sharknado4"],
       movieStory: [
         "故事敘述一場怪物級的颶風襲捲洛杉磯，導致市區大淹水，而海中的鯊魚則被吹上陸地到處吃人...",
-        "前集過後，芬恩和艾波前往紐約市以參加艾波所創作的《How to Survive a Sharknado and Other Unnatural Disasters》一書的簽書會，該書記載了關於洛杉磯風飛鯊事件的各種心得。但未料...",
-        "故事敘述風飛鯊英雄芬恩·謝波德在華盛頓特區從總統手中獲得了榮譽勳章，但在一場風飛鯊將白宮摧毀殆盡後，芬恩擔心在奧蘭多環球影城遊玩的艾波、梅和克勞迪婭而打算趕緊去找她們；過程...",
-        "故事敘述芬恩在艾波於前集死亡後，他們的新兒子吉爾已五歲。因「太空X」（Astro-X）的負責人雷諾斯研發的脈衝技術，使得已經五年沒有風飛鯊現象，所以名為...",
+        "前集過後，芬恩和艾波前往紐約市以參加艾波所創作的《How to Survive a Sharknado and ...",
+        "故事敘述風飛鯊英雄芬恩·謝波德在華盛頓特區從總統手中獲得了榮譽勳章，但在一場風飛鯊...",
+        "故事敘述芬恩在艾波於前集死亡後，他們的新兒子吉爾已五歲。因「太空X...",
       ],
       movieLink: [
         "https://zh.wikipedia.org/wiki/%E9%A2%A8%E9%A3%9B%E9%AF%8A",
@@ -29,8 +26,45 @@ export default {
 <template lang="pug">
 .theBox
   .myCarousel
-    .container 
-      .row 
+    .container-fluid 
+      .ab.row 
+        #carouselExampleControls.myCarousel.carousel.slide
+          .carousel-inner
+            .carousel-item.active
+              img.d-block.w-100(src="@/assets/view5.jpg", alt="")
+              .carousel-caption.d-none.d-md-block
+                .thecard(style="width: 10rem")
+                  .card-body
+                    h5.card-title NO.115
+                    p.card-text 三人成虎
+            .carousel-item
+              img.d-block.w-100(src="@/assets/view3.jpg", alt="")
+              .carousel-caption.d-none.d-md-block
+                .thecard(style="width: 10rem")
+                  .card-body
+                    h5.card-title NO.013
+                    p.card-text 初春漾水
+            .carousel-item
+              img.d-block.w-100(src="@/assets/view4.jpg", alt="")
+              .carousel-caption.d-none.d-md-block
+                .thecard(style="width: 10rem")
+                  .card-body
+                    h5.card-title NO.603
+                    p.card-text 綠草花紅
+          button.carousel-control-prev(
+            type="button",
+            data-bs-target="#carouselExampleControls",
+            data-bs-slide="prev"
+          )
+            span.carousel-control-prev-icon(aria-hidden="true")
+            span.visually-hidden Previous
+          button.carousel-control-next(
+            type="button",
+            data-bs-target="#carouselExampleControls",
+            data-bs-slide="next"
+          )
+            span.carousel-control-next-icon(aria-hidden="true")
+            span.visually-hidden Next
 
   .movieTitle 
     .container 
@@ -56,12 +90,11 @@ export default {
           h2 巢狀路由
     .container 
       .row 
-        .col.text-center 
+        .col-xs-12.text-center 
           nav.nestedRouter
             NuxtLink(to="/about") About
             NuxtLink(to="/github") Github
             NuxtLink(to="/thankyou") Thanks
-
     .container
       .row 
         .col-sm-6.offset-sm-3
@@ -74,9 +107,69 @@ export default {
 @media (max-width:576px)
   .card
     margin-bottom: 15px
+  .thecard
+    left: 300px
+@media (min-width: 576px)
+  .ab
+    margin-right: -50px
+    margin-left: -50px
+@keyframes cardShow
+  from
+    top: 100px
+    opacity: 0
+  to
+    top: -250px
+    opacity: 1
+
 .theBox
   width: 100%
   height: 100%
+  .myCarousel
+    // position: relative
+    margin-bottom: 50px
+    .carousel-inner
+      position: relative
+      .carousel-item
+        img
+          height: 500px
+          object-fit: cover
+        .carousel-caption
+          // top: 150px
+          // left: -300px
+          .thecard
+            opacity: 0
+            top: 100px
+            position: relative
+            .card-body
+              width: 100%
+
+              // background-color: red
+              // margin: 0
+              // padding: 0
+              .card-title
+                background-color: black
+                color: white
+                padding: 10px
+                margin: 0
+                // width: 100%
+              .card-text
+                background-color: rgba(255,255,255,0.8)
+                color: black
+                // left: -150px
+                margin: 0
+                writing-mode: vertical-lr
+                width: 100%
+                // height: 40%
+                display: flex
+                justify-content: center
+                align-items: center
+
+.carousel-item.active
+  .thecard
+    animation-name: cardShow
+    animation-duration: 3s
+    animation-fill-mode: forwards
+
   .movieTitle
     margin-bottom: 50px
     h2
@@ -103,15 +196,16 @@ export default {
       border-bottom: 1px solid #000
 .nestedRouter
   margin-bottom: 50px
+  overflow: hidden
   a
-    margin-right: 50px
+    margin-right: 40px
     text-decoration: none
     color: black
     transition: color 0.2s
     &:hover
       color: #0978e8
 .nested
-  padding: 50px
+  // padding: 50px
 .content
   border: 1px solid #000
   border-radius: 5px

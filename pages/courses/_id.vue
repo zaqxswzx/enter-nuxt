@@ -50,7 +50,7 @@ export default {
         .courseTitle 
           p 課程資訊
     .row
-      .col-xs-12.col-sm-5.offset-sm-4
+      .aa.col-xs-12.col-sm-6.offset-sm-3
         .courseCard
           .thecard(v-if="!isError")
             .card 
@@ -74,8 +74,9 @@ export default {
   p
     padding-bottom: 25px
     border-bottom: 1px solid #000
+// .aa
+//   background-color: red
 .card
-  width: 18rem
   border-radius: 10px
   img
     border-radius: 10px
@@ -102,15 +103,20 @@ export default {
   justify-content: center
   align-items: center
   float: left
+  position: relative
   img
+    margin-top: -25px
     width: 20px
     height: 20px
     margin-right: 30px
     margin-left: 15px
+  p
+    margin-left: -15px
 h1
   margin: 0
   letter-spacing: -5px
 h2
   margin: 0
   margin-top: 5px
+  font-size: 25px
 </style>

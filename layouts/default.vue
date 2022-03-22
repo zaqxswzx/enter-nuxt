@@ -25,7 +25,6 @@ export default {
                   icon="fa-brands fa-instagram-square"
                 )
                 font-awesome-icon.iconLogo.lineIcon(icon="fa-brands fa-line")
-
           .container 
             .fixHead.col-xs-6.col-sm-3.offset-sm-2 
               .headItem 
@@ -38,9 +37,19 @@ export default {
     .row
       nav.navbar.navbar-expand-lg.navbar-light
         .container-fluid 
-          .aa.col-xs-12.col-sm-2
-            NuxtLink.navbar-brand(to="/") Kevin
-          .bb.col-xs-12.text-center.col-sm-10
+          NuxtLink.navbar-brand(to="/") Kevin
+          button.navbar-toggler(
+            type="button",
+            data-bs-toggle="collapse",
+            data-bs-target="#navbarNav",
+            aria-controls="navbarNav",
+            aria-expanded="false",
+            aria-label="Toggle navigation"
+          )
+            //- span.navbar-toggler-icon
+            span
+              img.ham(src="@/assets/meat.png")
+          #navbarNav.collapse.navbar-collapse
             ul.navbar-nav
               li.nav-item
                 NuxtLink.nav-link(to="/courses") 課程API
@@ -130,14 +139,17 @@ html,body
     p
       padding: 0
       margin: 0
-
 .navbar
   background-color: rgba(255,255,255,0.8)
   border-bottom: 1px solid #bbb
   padding: 0
-  margin-bottom: 50px
+  margin-bottom: 70px
   button
     padding: 0
+  span
+    img.ham
+      width: 50px
+      height: 50px
 .main
   width: 100%
   min-height: 100%

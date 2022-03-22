@@ -106,6 +106,7 @@ a.card {
   }
   .content {
     > h1 {
+      margin-top: 20px;
       font-size: 14px;
       text-align: left;
       margin-bottom: -15px;
@@ -116,7 +117,10 @@ a.card {
       align-items: center;
       margin-top: 5px;
       > h2 {
-        font-size: 13px;
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: 0;
+        color: black;
       }
       .teach-img {
         display: flex;
@@ -125,6 +129,12 @@ a.card {
         > img {
           border-radius: 25px;
           margin-right: 10px;
+        }
+        > p {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          border-bottom: 3px solid #ff6600;
+          padding-right: 10px;
         }
       }
     }

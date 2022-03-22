@@ -20,11 +20,15 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/scss/main.scss',
+    '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '@/plugins/bootstrap-vue',
+    // '@/plugins/bootstrap-vue',
+    { src: '~/plugins/bootstrap.js', mode: 'client' },
+    '~/plugins/fontawesome.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,7 +49,7 @@ export default {
   // },
   fontawesome: {
     icons: {
-      solid: true,
+      // solid: true,
       brands: true
     }
   },
@@ -54,12 +58,9 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    'bootstrap-vue/nuxt'
+    // 'bootstrap-vue/nuxt'
   ],
 
-  bootstrapVue: {
-    icons: true
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
