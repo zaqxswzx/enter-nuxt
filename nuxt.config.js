@@ -24,7 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-
+    '@/plugins/bootstrap-vue',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -35,20 +35,31 @@ export default {
     "nuxt-gsap-module",
     '@nuxtjs/fontawesome'
   ],
+  // fontawesome: {
+  //   imports: [
+  //     {
+  //       set: '@fortawesome/free-solid-svg-icons',
+  //       icons: ['fas']
+  //     },
+  //   ],
+  // },
   fontawesome: {
-    imports: [
-      {
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
-      },
-    ],
+    icons: {
+      solid: true,
+      brands: true
+    }
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'bootstrap-vue/nuxt'
   ],
+
+  bootstrapVue: {
+    icons: true
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

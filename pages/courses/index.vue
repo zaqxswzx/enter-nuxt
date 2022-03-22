@@ -24,41 +24,52 @@ export default {
   },
 };
 </script>
-<template>
-  <div>
-    <div class="navRouter">
-      <linkRouter />
-    </div>
-    <div id="courses">
-      <a
-        class="card"
-        v-for="item in takeCoursesList"
-        :key="item.id"
-        @click.left="goToCourses(item.id)"
-        @click.middle="openNewTab(item.id)"
-      >
-        <img :src="item.photo" alt="" />
-        <div class="content">
-          <h1>{{ item.name }}</h1>
-          <div class="teacher-box">
-            <div class="teach-img">
-              <img class="teacher" :src="item.teacher.img" alt="" />
-              <p>{{ item.teacher.name }}</p>
-            </div>
-            <h2>NTD: {{ item.money }}</h2>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
+<template lang="pug">
+div
+  .container 
+    .row 
+      .col.text-center 
+        .listTitle 
+          h2 課程列表
+  .container 
+    .row 
+      .aa.col-xs-12.col-sm-6.offset-sm-3
+        #courses
+          a.card(
+            v-for="item in takeCoursesList",
+            :key="item.id",
+            @click.left="goToCourses(item.id)",
+            @click.middle="openNewTab(item.id)"
+          )
+            img(:src="item.photo", alt)
+            .content
+              h1 {{ item.name }}
+              .teacher-box
+                .teach-img
+                  img.teacher(:src="item.teacher.img", alt)
+                  p {{ item.teacher.name }}
+                h2 NTD: {{ item.money }}
 </template>
 
 <style lang="scss" scoped>
+i {
+  color: black;
+}
+.icon {
+  color: red;
+}
+.listTitle > h2 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 25px;
+  margin-bottom: 50px;
+}
+.aa {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #courses {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  position: relative;
 }
 .navRouter {
   position: fixed;
@@ -67,6 +78,8 @@ export default {
 }
 a.card {
   cursor: pointer;
+  text-decoration: none;
+  color: green;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

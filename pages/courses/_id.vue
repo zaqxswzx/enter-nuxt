@@ -21,7 +21,6 @@ export default {
       timer: null,
     };
   },
-
   methods: {
     openLoading() {
       this.$nuxt.$loading.start();
@@ -44,41 +43,43 @@ export default {
 </script>
 
 <template lang="pug">
-.courseCard
-  .navRouter
-    linkRouter
-  .card(v-if="!isError")
-    .content
-      h1 {{ getCoursesInfo.data.name }}
-      h2 NTD: {{ getCoursesInfo.data.money }}
-      .person
-        img(:src="getCoursesInfo.data.teacher.img")
-        p {{ getCoursesInfo.data.teacher.name }}
-    .back 
-      img.classPhoto(:src="getCoursesInfo.data.photo")
-  h1(v-if="isError") {{ getCoursesInfo.error_message.data }}
+.delta 
+  .container 
+    .row 
+      .col 
+        .courseTitle 
+          p 課程資訊
+    .row
+      .col-xs-12.col-sm-5.offset-sm-4
+        .courseCard
+          .thecard(v-if="!isError")
+            .card 
+              img.classPhoto(:src="getCoursesInfo.data.photo")
+              .card-body 
+                .card-title
+                  h2 {{ getCoursesInfo.data.name }}
+                .card-text
+                  .price 
+                    h4 NTD: {{ getCoursesInfo.data.money }}
+                  .person
+                    img(:src="getCoursesInfo.data.teacher.img")
+                    p {{ getCoursesInfo.data.teacher.name }}
+                  .back 
+          h1(v-if="isError") {{ getCoursesInfo.error_message.data }}
 </template>
 
 <style lang="sass" scoped>
-.navRouter
-  position: fixed
-  top: 20px
-  left: 20px
-.courseCard
-  display: flex
+.courseTitle
+  margin-bottom: 40px
+  p
+    padding-bottom: 25px
+    border-bottom: 1px solid #000
 .card
-  border: 1px solid #000
-  background-color: #eee
-  border-radius: 5px
-  width: 500px
-  height: 400px
-  position: fixed
-  top: 50%
-  left: 50%
-  transform: translateX(-50%) translateY(-50%)
-  display: flex
-  justify-content: center
-  align-items: center
+  width: 18rem
+  border-radius: 10px
+  img
+    border-radius: 10px
+    transition: 0.5s
   &:hover
     .classPhoto
       opacity: 1
@@ -87,13 +88,7 @@ export default {
   .back
     width: 100%
     height: 100%
-    position: fixed
-    top: 50%
-    left: 50%
-    transform: translateX(-50%) translateY(-50%)
-
     .classPhoto
-      position: fixed
       bottom: 15%
       right: 15%
       transition: 0.5s
