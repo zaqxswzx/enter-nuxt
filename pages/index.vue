@@ -96,10 +96,9 @@ export default {
             NuxtLink(to="/thankyou") Thanks
     .container
       .row 
-        .col-sm-6.offset-sm-3
-          .nested
-            .content
-              NuxtChild
+        .nested
+          .content
+            NuxtChild
 </template>
 
 <style scoped lang="sass">
@@ -191,12 +190,16 @@ export default {
   margin-bottom: 50px
   overflow: hidden
   a
-    margin-right: 40px
     text-decoration: none
     color: black
+    display: inline-block
+    width: 120px
     transition: color 0.2s
     &:hover
       color: #0978e8
+.nested
+  width: 500px
+  margin: 0 auto
 .content
   border: 1px solid #000
   border-radius: 5px
