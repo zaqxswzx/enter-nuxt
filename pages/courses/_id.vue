@@ -43,44 +43,51 @@ export default {
 </script>
 
 <template lang="pug">
-.delta 
+.delta
   .container 
     .row 
       .col 
         .courseTitle 
           p 課程資訊
     .row
-      .aa.col-xs-12.col-sm-6.offset-sm-3
-        .courseCard
-          .thecard(v-if="!isError")
-            .card 
-              img.classPhoto(:src="getCoursesInfo.data.photo")
-              .card-body 
-                .card-title
-                  h2 {{ getCoursesInfo.data.name }}
-                .card-text
-                  .price 
-                    h4 NTD: {{ getCoursesInfo.data.money }}
-                  .person
-                    img(:src="getCoursesInfo.data.teacher.img")
-                    p {{ getCoursesInfo.data.teacher.name }}
-                  .back 
+      .thecard(v-if="!isError")
+        .card
+          img.classPhoto(:src="getCoursesInfo.data.photo")
+          .card-body 
+            .card-title
+              h2 {{ getCoursesInfo.data.name }}
+            .card-text
+              .price 
+                h4 NTD: {{ getCoursesInfo.data.money }}
+              .person
+                img(:src="getCoursesInfo.data.teacher.img")
+                p {{ getCoursesInfo.data.teacher.name }}
+              .back 
           h1(v-if="isError") {{ getCoursesInfo.error_message.data }}
 </template>
 
 <style lang="sass" scoped>
+.clearfix:after
+  clear: both
+  content: ''
+  display: table
+.delta
+  margin-bottom: 50px
 .courseTitle
   margin-bottom: 40px
   p
     padding-bottom: 25px
     border-bottom: 1px solid #000
-// .aa
-//   background-color: red
+.aa
+  height: 300px
 .card
   border-radius: 10px
-  img
+  width: 400px
+  margin: 0 auto
+  img.classPhoto
     border-radius: 10px
     transition: 0.5s
+    height: 300px
   &:hover
     .classPhoto
       opacity: 1
@@ -90,8 +97,6 @@ export default {
     width: 100%
     height: 100%
     .classPhoto
-      bottom: 15%
-      right: 15%
       transition: 0.5s
       opacity: 0.8
   .content

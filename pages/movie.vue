@@ -135,7 +135,6 @@ export default {
 *
   vertical-align: center
   outline: none
-  // border: 1px solid #000
 
 #app
   +size(100%)
@@ -144,10 +143,8 @@ export default {
   left: 50%
   transform: translateX(-50%) translateY(-50%)
   background-color: #111
-  // color: white
   display: flex
   overflow: hidden
-  // overflow: hidden 預防卷軸出現
 .router
   position: fixed
   top: 15px
@@ -167,12 +164,9 @@ export default {
   color: white
   font-size: 30px
   font-weight: bold
-.movie
-  flex: 1
-
 .cards
   +flexCenter
-  height: 100%
+  height: 796px
   justify-content: left
   // 以左側作排列
   margin-left: 20vw
@@ -226,7 +220,6 @@ export default {
       opacity: 0.8
       min-height: 5em
     .price
-      // display: inline-block
       margin-right: 20px
     button
       padding: 5px 10px
@@ -297,12 +290,10 @@ export default {
       h3
         font-size: 17px
         font-weight: normal
-        // display: inline-block
         width: 100%
         opacity: 0.8
         .price
           float: right
-          // float: right 要有最大的寬度才可以把它放在最右邊
         .remove
           display: inline-block
           padding: 4px 15px
@@ -316,6 +307,5 @@ export default {
             color: black
       .thumbnail
         +size(50px,70px)
-        // display: inline-block
         margin-right: 20px
 </style>

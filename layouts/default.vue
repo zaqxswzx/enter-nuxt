@@ -27,10 +27,10 @@ export default {
                 font-awesome-icon.iconLogo.lineIcon(icon="fa-brands fa-line")
           .container 
             .fixHead.col-xs-6.col-sm-3.offset-sm-2 
-              .headItem 
-                .headtitle 
+              .headItem
+                .headtitle
                   p 癮 。
-                .headbody 
+                .headbody
                   p 風雨欲來，春滿樓。
                   p 山嵐瀰盡，秋落地。
   .container-fluid
@@ -91,49 +91,34 @@ html,body
     opacity: 1
 
 .head
-  min-height: 70vh
-  max-width: 100%
-  background-color: #eee
-  background-image: url(@/assets/view.jpg)
-  background-position: center 35%
-  position: relative
-  .iconPlace
-    margin-right: 0
-    padding-right: 0
-    .iconLogo
-      margin-right: 15px
-      cursor: pointer
-    .facebookIcon:hover
-      transition: 0.5s
-      color: blue
-
-    .instagramIcon:hover
-      transition: 0.5s
-      color: purple
-
-    .lineIcon:hover
-      transition: 0.5s
-      color: #60b745
+  background: url(@/assets/view.jpg) 50% 35% no-repeat
+  .iconLogo
+    margin-right: 15px
+    cursor: pointer
+  .facebookIcon:hover
+    transition: 0.5s
+    color: blue
+  .instagramIcon:hover
+    transition: 0.5s
+    color: purple
+  .lineIcon:hover
+    transition: 0.5s
+    color: #60b745
 .fixHead
-  position: relative
   .headItem
-    position: absolute
-    top: 100px
-    display: inline-block
-    margin-top: 75px
+    margin: 75px 0 50px
     animation-name: showUp
     animation-duration: 5s
     animation-fill-mode: forwards
     opacity: 0
+    width: 79px
     .headtitle
       background-color: rgba(0,0,0,0.4)
       color: white
       padding: 15px
       border-radius: 5px 5px 0 0
     .headbody
-      padding: 15px
-      padding-top: 50px
-      padding-bottom: 50px
+      padding: 50px 15px
       background-color: rgba(255,255,255,0.4)
       writing-mode: vertical-lr
     p
@@ -151,14 +136,10 @@ html,body
       width: 50px
       height: 50px
 .main
-  width: 100%
-  min-height: 100%
-  // min-height可以讓footer乖乖地在下面
   margin-bottom: 50px
 .footer
   background-color: #000
-  padding-top: 40px
-  padding-bottom: 40px
+  padding: 40px 0
   text-align: left
   .creater
     color: white

@@ -33,21 +33,21 @@ export default {
             .carousel-item.active
               img.d-block.w-100(src="@/assets/view5.jpg", alt="")
               .carousel-caption.d-none.d-md-block
-                .thecard(style="width: 10rem")
+                .thecard
                   .card-body
                     h5.card-title NO.115
                     p.card-text 三人成虎
             .carousel-item
               img.d-block.w-100(src="@/assets/view3.jpg", alt="")
               .carousel-caption.d-none.d-md-block
-                .thecard(style="width: 10rem")
+                .thecard
                   .card-body
                     h5.card-title NO.013
                     p.card-text 初春漾水
             .carousel-item
               img.d-block.w-100(src="@/assets/view4.jpg", alt="")
               .carousel-caption.d-none.d-md-block
-                .thecard(style="width: 10rem")
+                .thecard
                   .card-body
                     h5.card-title NO.603
                     p.card-text 綠草花紅
@@ -65,7 +65,6 @@ export default {
           )
             span.carousel-control-next-icon(aria-hidden="true")
             span.visually-hidden Next
-
   .movieTitle 
     .container 
       .col.text-center 
@@ -73,11 +72,11 @@ export default {
   .movieWall
     .container
       .row.row-md-4
-        .col-sm-12.col-md-6.col-lg-3(
+        .movie-stretch.col-sm-12.col-md-6.col-lg-3(
           v-for="(item, idx) in movieName",
           :key="item"
         )
-          .card
+          .card.card-movie
             img.card-img-top(:src="require(`~/assets/${movieEng[idx]}.jpg`)")
             .card-body
               h5.card-title {{ item }}
@@ -125,64 +124,58 @@ export default {
   width: 100%
   height: 100%
   .myCarousel
-    // position: relative
     margin-bottom: 50px
     .carousel-inner
       position: relative
       .carousel-item
+        position: relative
         img
           height: 500px
           object-fit: cover
         .carousel-caption
-          // top: 150px
-          // left: -300px
           .thecard
             opacity: 0
-            top: 100px
-            position: relative
+            position: absolute
             .card-body
-              width: 100%
-
-              // background-color: red
-              // margin: 0
-              // padding: 0
               .card-title
                 background-color: black
                 color: white
                 padding: 10px
                 margin: 0
-                // width: 100%
               .card-text
                 background-color: rgba(255,255,255,0.8)
                 color: black
-                // left: -150px
                 margin: 0
                 writing-mode: vertical-lr
-                width: 100%
-                // height: 40%
                 display: flex
                 justify-content: center
                 align-items: center
+                width: 100%
+                padding: 20px 0
 
 .carousel-item.active
   .thecard
     animation-name: cardShow
     animation-duration: 3s
     animation-fill-mode: forwards
-
-  .movieTitle
-    margin-bottom: 50px
-    h2
-      padding-bottom: 25px
-      border-bottom: 1px solid #000
-  .movieWall
-    .card
-      .card-body
-        a
-          text-decoration: none
-          color: black
-          font-weight: bold
-          float: right
+    width: 150px
+.movieTitle
+  margin-bottom: 50px
+  h2
+    padding-bottom: 25px
+    border-bottom: 1px solid #000
+.movieWall
+  align-items: stretch
+  .card-movie
+    margin-bottom: 20px
+    .card-body
+      a
+        text-decoration: none
+        color: black
+        font-weight: bold
+        float: right
+.movie-stretch
+  align-items: stretch
 .nuxtNested
   background-color: #eee
   padding-top: 25px
@@ -204,8 +197,6 @@ export default {
     transition: color 0.2s
     &:hover
       color: #0978e8
-.nested
-  // padding: 50px
 .content
   border: 1px solid #000
   border-radius: 5px
