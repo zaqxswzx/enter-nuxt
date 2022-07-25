@@ -203,9 +203,6 @@ export default {
 .content
   border: 1px solid #000
   border-radius: 5px
-  display: flex
-  justify-content: center
-  align-items: center
   width: 100%
   height: 500px
 </style>

@@ -9,8 +9,11 @@ export default {};
 </template>
 
 <style lang="sass" scoped>
+.thankyou
+  height: 100%
 .content
   display: flex
   justify-content: center
   align-items: center
+  height: 100%
 </style>

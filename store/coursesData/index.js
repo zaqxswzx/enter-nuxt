@@ -19,7 +19,6 @@ export const actions = {
 
 export const mutations = {
   addData(state, data) {
-    console.log("in mut")
     state.courses.data = data
   },
   addError(state, data) {
